@@ -2,6 +2,7 @@ package cn.jihnoy.controller;
 
 import cn.jihnoy.domain.User;
 import cn.jihnoy.redis.RedisService;
+import cn.jihnoy.redis.UserKey;
 import cn.jihnoy.result.Result;
 import cn.jihnoy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,18 +44,19 @@ public class SampleController {
 
     @RequestMapping("/redis/get")
     @ResponseBody
-    public Result<Long> redisGet(){
-        Long v1 = redisService.get("key1", Long.class);
-        System.out.println(v1);
-        return Result.success(v1);
+    public Result<User> redisGet(){
+        User user = redisService.get(UserKey.getById,""+1, User.class);
+        return Result.success(user);
     }
 
     @RequestMapping("/redis/set")
     @ResponseBody
-    public Result<String> redisSet(){
-        boolean v1 = redisService.set("key2", "hello????");
-        String str = redisService.get("key2", String.class);
-        return Result.success(str);
+    public Result<Boolean> redisSet(){
+        User user = new User();
+        user.setId(1);
+        user.setName("1111");
+        redisService.set(UserKey.getById, ""+1, user);
+        return Result.success(true);
     }
 
 }
