@@ -48,8 +48,9 @@ public class MiaoshaUserService {
         if(!pass.equals(dbPass)) {
             throw new GlobalException(CodeMsg.PASSWORD_ERROR);
         }
+        String token = UUIDUtil.uuid();
         //生成cookie
-        addACookie(miaoshaUser, response);
+        addACookie(miaoshaUser, token,response);
         return true;
     }
 
@@ -59,14 +60,14 @@ public class MiaoshaUserService {
         }
         MiaoshaUser miaoshaUser = redisService.get(MiaoshaUserKey.token, token, MiaoshaUser.class);
         if(miaoshaUser != null){
-            addACookie(miaoshaUser, response);
+            addACookie(miaoshaUser, token,response);
         }
 
         return miaoshaUser;
     }
 
-    private void addACookie(MiaoshaUser miaoshaUser, HttpServletResponse response){
-        String token = UUIDUtil.uuid();
+    private void addACookie(MiaoshaUser miaoshaUser,String token, HttpServletResponse response){
+
         redisService.set(MiaoshaUserKey.token, token, miaoshaUser);
         Cookie cookie = new Cookie(COOKIE_NAME, token);
         cookie.setMaxAge(MiaoshaUserKey.token.expireSeconds());

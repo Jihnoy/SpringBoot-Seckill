@@ -4,26 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf1d61fe-0efc-4496-b622-df089ef2eeaf" name="Changes" comment="添加redis，开始login">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/config/UserArgumentResolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/controller/GoodsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/dao/MiaoshaUserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/domain/MiaoshaUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/exception/GlobalException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/redis/MiaoshaUserKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/MiaoshaUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/util/UUIDUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/util/ValidataUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/validator/IsMobile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/validator/IsMobileValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/vo/LoginVo.java" afterDir="false" />
+    <list default="true" id="bf1d61fe-0efc-4496-b622-df089ef2eeaf" name="Changes" comment="添加分布式session，增加异常处理模块，使用jsr303对id实现校验">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/controller/MiaoshaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/dao/GoodsDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/dao/OrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/domain/Goods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/domain/MiaoshaGoods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/domain/MiaoshaOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/domain/OrderInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/GoodsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/MiaoshaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/vo/GoodsVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/iphonex.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/meta10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/goods_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/miaosha_fail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/order_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/util/MD5Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/util/MD5Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/controller/GoodsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/result/CodeMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/result/CodeMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/MiaoshaUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/MiaoshaUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/goods_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/goods_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +50,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2TkKy8yKcBEYLRzAXY4rjLM5Bxs" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -68,7 +72,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "D:/JavaProject/SpringBoot-Seckill",
+    "last_opened_file_path": "D:/JavaProject/SpringBoot-Seckill/src/main/resources/static",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,9 +85,12 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\SpringBoot-Seckill\src\main\resources\static" />
+      <recent name="D:\JavaProject\SpringBoot-Seckill\src\main\resources\templates" />
       <recent name="D:\JavaProject\SpringBoot-Seckill\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\SpringBoot-Seckill\src\main\java\cn\jihnoy\domain" />
       <recent name="D:\javaProject\seckillMQ\src\main\java\cn\jihnoy\result" />
       <recent name="D:\javaProject\seckillMQ\src\main\resources\templates" />
     </key>
@@ -94,6 +101,8 @@
       <recent name="cn.jihnoy.controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.jihnoy.dao" />
+      <recent name="cn.jihnoy.service" />
       <recent name="cn.jihnoy.controller" />
       <recent name="cn.jihnoy.redis" />
     </key>
@@ -142,7 +151,8 @@
       <updated>1691581891518</updated>
       <workItem from="1691581892867" duration="9123000" />
       <workItem from="1691633603135" duration="11073000" />
-      <workItem from="1691733197180" duration="14233000" />
+      <workItem from="1691733197180" duration="14686000" />
+      <workItem from="1691812149707" duration="15643000" />
     </task>
     <task id="LOCAL-00001" summary="添加redis，开始login">
       <created>1691681534053</created>
@@ -151,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691681534053</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="添加分布式session，增加异常处理模块，使用jsr303对id实现校验">
+      <created>1691773339540</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691773339540</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +187,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加redis，开始login" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加redis，开始login" />
+    <MESSAGE value="添加分布式session，增加异常处理模块，使用jsr303对id实现校验" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加分布式session，增加异常处理模块，使用jsr303对id实现校验" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
