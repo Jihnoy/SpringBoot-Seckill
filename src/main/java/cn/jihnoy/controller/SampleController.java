@@ -1,6 +1,7 @@
 package cn.jihnoy.controller;
 
 import cn.jihnoy.domain.User;
+import cn.jihnoy.rabbitmq.MQSender;
 import cn.jihnoy.redis.RedisService;
 import cn.jihnoy.redis.UserKey;
 import cn.jihnoy.result.Result;
@@ -28,35 +29,34 @@ public class SampleController {
     @Autowired
     RedisService redisService;
 
-    @RequestMapping("/getuser")
+    @Autowired
+    MQSender sender;
+
+   /* @RequestMapping("/mq")
     @ResponseBody
-    public Result<User> dbGet(){
-        User user = userService.getByid(1);
-        return Result.success(user);
+    public Result<String> mq(){
+        sender.send("hello lcn");
+        return Result.success("hello, world");
     }
 
-    @RequestMapping("/insertUser")
+    @RequestMapping("/mq/topic")
     @ResponseBody
-    public Result<Boolean> dbPut(){
-        userService.insert();
-        return Result.success(true);
+    public Result<String> topic(){
+        sender.sendTopic("hello lcn");
+        return Result.success("hello, world");
     }
 
-    @RequestMapping("/redis/get")
+    @RequestMapping("/mq/fanout")
     @ResponseBody
-    public Result<User> redisGet(){
-        User user = redisService.get(UserKey.getById,""+1, User.class);
-        return Result.success(user);
+    public Result<String> fanout(){
+        sender.sendFanout("hello lcn");
+        return Result.success("hello, world");
     }
 
-    @RequestMapping("/redis/set")
+    @RequestMapping("/mq/headers")
     @ResponseBody
-    public Result<Boolean> redisSet(){
-        User user = new User();
-        user.setId(1);
-        user.setName("1111");
-        redisService.set(UserKey.getById, ""+1, user);
-        return Result.success(true);
-    }
-
+    public Result<String> headers(){
+        sender.sendHeaders("hello lcn");
+        return Result.success("hello, world");
+    }*/
 }
