@@ -4,28 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf1d61fe-0efc-4496-b622-df089ef2eeaf" name="Changes" comment="完成页面缓存，将商品列表变成静态页面，同时实现秒杀静态化">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/controller/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/rabbitmq/MQConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/rabbitmq/MQReceiever.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/rabbitmq/MQSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/rabbitmq/MiaoshaMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/redis/MiaoshaKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/redis/OrderKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/vo/OrderDetailVo.java" afterDir="false" />
+    <list default="true" id="bf1d61fe-0efc-4496-b622-df089ef2eeaf" name="Changes" comment="接入RabbitMQ，实现秒杀的异步操作。减少数据库访问次数">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/access/AccessInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/access/AccessLimit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/access/UserContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/redis/AccessKey.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/config/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/controller/MiaoshaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/controller/MiaoshaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/controller/SampleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/controller/SampleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/dao/GoodsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/dao/GoodsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/dao/OrderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/redis/GoodsKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/redis/GoodsKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/redis/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/redis/RedisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/redis/MiaoshaKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/redis/MiaoshaKey.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/result/CodeMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/result/CodeMsg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/GoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/GoodsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/MiaoshaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/MiaoshaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/jihnoy/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/goods_detail.htm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/goods_detail.htm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +28,7 @@
         <option value="JUnit5 Test Class" />
         <option value="JUnit4 Test Class" />
         <option value="Interface" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -57,34 +47,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelOrder2&quot;: &quot;2&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth2&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/JavaProject/SpringBoot-Seckill/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;spring.boot&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;9f4718c3bc7d3356f67b81f9fd8aab26&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelOrder2": "2",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth2": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "D:/JavaProject/SpringBoot-Seckill/src/main/java/cn/jihnoy/redis",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "spring.boot",
+    "spring.configuration.checksum": "9f4718c3bc7d3356f67b81f9fd8aab26",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\SpringBoot-Seckill\src\main\java\cn\jihnoy\redis" />
       <recent name="D:\JavaProject\SpringBoot-Seckill\src\main\resources" />
       <recent name="D:\JavaProject\SpringBoot-Seckill\src\main\resources\static" />
       <recent name="D:\JavaProject\SpringBoot-Seckill\src\main\resources\templates" />
@@ -160,7 +151,8 @@
       <workItem from="1692863598866" duration="19685000" />
       <workItem from="1693058809482" duration="2580000" />
       <workItem from="1693124563945" duration="795000" />
-      <workItem from="1693126262990" duration="19371000" />
+      <workItem from="1693126262990" duration="19699000" />
+      <workItem from="1693301737342" duration="9440000" />
     </task>
     <task id="LOCAL-00001" summary="添加redis，开始login">
       <created>1691681534053</created>
@@ -190,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692893281702</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="接入RabbitMQ，实现秒杀的异步操作。减少数据库访问次数">
+      <created>1693145959990</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1693145959990</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +211,8 @@
     <MESSAGE value="添加分布式session，增加异常处理模块，使用jsr303对id实现校验" />
     <MESSAGE value="完成秒杀模块，增加秒杀相关异常，" />
     <MESSAGE value="完成页面缓存，将商品列表变成静态页面，同时实现秒杀静态化" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成页面缓存，将商品列表变成静态页面，同时实现秒杀静态化" />
+    <MESSAGE value="接入RabbitMQ，实现秒杀的异步操作。减少数据库访问次数" />
+    <option name="LAST_COMMIT_MESSAGE" value="接入RabbitMQ，实现秒杀的异步操作。减少数据库访问次数" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
